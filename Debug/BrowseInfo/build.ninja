@@ -1,0 +1,90 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\exceptions.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\exceptions.c" -xcl_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\exceptions.xcl" -macro_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\exceptions.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\exceptions.c" -o "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\exceptions.tmp"
+  rspfile_name = C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\exceptions.xcl.rsp
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\kernel_functions.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\kernel_functions.c" -xcl_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\kernel_functions.xcl" -macro_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\kernel_functions.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\kernel_functions.c" -o "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\kernel_functions.tmp"
+  rspfile_name = C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\kernel_functions.xcl.rsp
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\main.c" -xcl_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\main.xcl" -macro_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\main.c" -o "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\main.tmp"
+  rspfile_name = C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\main.xcl.rsp
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\startup_sam3x.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\startup_sam3x.c" -xcl_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\startup_sam3x.xcl" -macro_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\startup_sam3x.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\startup_sam3x.c" -o "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\startup_sam3x.tmp"
+  rspfile_name = C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\startup_sam3x.xcl.rsp
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\system_sam3x.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\system_sam3x.c" -xcl_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\system_sam3x.xcl" -macro_file "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\system_sam3x.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\system_sam3x.c" -o "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\system_sam3x.tmp"
+  rspfile_name = C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\system_sam3x.xcl.rsp
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\exceptions.pbi : INDEXER C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\exceptions.xcl |  $
+C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\exceptions.c
+  flags = "-out=C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\exceptions.pbi" -f "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\exceptions.xcl"
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\kernel_functions.pbi : INDEXER C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\kernel_functions.xcl |  $
+C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\kernel_functions.c
+  flags = "-out=C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\kernel_functions.pbi" -f "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\kernel_functions.xcl"
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\main.pbi : INDEXER C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\main.xcl |  $
+C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\main.c
+  flags = "-out=C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\main.pbi" -f "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\main.xcl"
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\startup_sam3x.pbi : INDEXER C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\startup_sam3x.xcl |  $
+C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\startup_sam3x.c
+  flags = "-out=C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\startup_sam3x.pbi" -f "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\startup_sam3x.xcl"
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\system_sam3x.pbi : INDEXER C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\system_sam3x.xcl |  $
+C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\system_sam3x.c
+  flags = "-out=C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\system_sam3x.pbi" -f "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\system_sam3x.xcl"
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1.pbw : MAKEBROWSE C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1.pbd
+  flags = "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1.pbd" -output "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1.pbw"
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part0.pbi : PDBLINK C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\exceptions.pbi |  $
+C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\kernel_functions.pbi
+  flags = -M "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part0.pbi" "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\exceptions.pbi" "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\kernel_functions.pbi"
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part1.pbi : PDBLINK C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\main.pbi |  $
+C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\startup_sam3x.pbi
+  flags = -M "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part1.pbi" "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\main.pbi" "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\startup_sam3x.pbi"
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part2.pbi : PDBLINK C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\system_sam3x.pbi
+  flags = -M "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part2.pbi" "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\system_sam3x.pbi"
+
+build C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1.pbd : PDBLINK C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part0.pbi |  $
+C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part1.pbi $
+C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part2.pbi
+  flags = -M "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1.pbd" "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part0.pbi" "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part1.pbi" "C$:\Users\khale\OneDrive\Skrivbord\Dst2\Lab$ 3\Debug\BrowseInfo\lab$ 1_part2.pbi"
+
